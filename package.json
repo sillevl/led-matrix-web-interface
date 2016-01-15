@@ -1,0 +1,32 @@
+{
+  "name": "led-matrix-web-interface",
+  "version": "1.0.0",
+  "description": "Web interface for led matrix display panels using Raspberry Pi",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sillevl/led-matrix-web-interface.git"
+  },
+  "keywords": [
+    "led",
+    "panel",
+    "matrix",
+    "display",
+    "web",
+    "interface",
+    "rest",
+    "raspberry",
+    "pi",
+    "express",
+    "node.js"
+  ],
+  "author": "Sille Van Landschoot",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sillevl/led-matrix-web-interface/issues"
+  },
+  "homepage": "https://github.com/sillevl/led-matrix-web-interface#readme"
+}
