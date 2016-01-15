@@ -6,21 +6,12 @@
     <title>Led matrix web interface</title>
 </head>
 <body>
-  <div class="top-bar">
-    <div class="top-bar-left">
-      <ul class="dropdown menu" data-dropdown-menu>
-        <li class="menu-text">Led matrix</li>
-      </ul>
-    </div>
-    <div class="top-bar-right">
-      <ul class="menu">
-        <li><a href="/">Home</a></li>
-      </ul>
-    </div>
-  </div>
-    <div class="container">
+  {{>topbar}}
+  <div class="row">
+    <div class="small-12 columns">
       {{{body}}}
     </div>
-    <script src="/static/js/app.js" charset="utf-8"></script>
+  </div>
+  <script src="/static/js/app.js" charset="utf-8"></script>
 </body>
 </html>
