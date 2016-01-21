@@ -21,12 +21,10 @@ app.get('/', function (req, res) {
 });
 
 app.post('/', function(req, res){
-  console.log(req.body);
   var data = {
     first: req.body.first,
     second: req.body.second
   };
-  console.log(data);
   res.render('home', data);
 });
 
