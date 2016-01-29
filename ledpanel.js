@@ -1,4 +1,9 @@
-var SPI = require('spi');
+try{
+	var SPI = require('spi');
+} catch (error) {
+	SPI = null
+}
+
 
 var LedPanel = function(dev){ // device eg: '/dev/spidev1.1'
 	this.device = new SPI.Spi(dev, {
@@ -14,7 +19,7 @@ LedPanel.prototype.write = function(data){
 
 LedPanel.prototype.line = function(panel, line, data){
 	var buffer = new Buffer((3 + (32*3)));
-	
+
 	buffer[0] = 0x01; 	// line command
 	buffer[1] = panel;	// panel number
 	buffer[2] = line;	// line number
@@ -55,5 +60,10 @@ LedPanel.prototype.demo = function(){
 	}
 };
 
-exports.LedPanel = LedPanel;
-
+if(SPI){
+	exports.LedPanel = LedPanel;
+} else {
+	exports.LedPanel = function(dev){
+		this.demo = function(){};
+	}
+}
