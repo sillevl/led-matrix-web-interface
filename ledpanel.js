@@ -8,13 +8,27 @@ var LedPanel = function(dev){ // device eg: '/dev/spidev1.1'
 	}, function(s){s.open();});
 };
 
-LedPanel.prototype.demo = function(){
-	var buffer = new Buffer((3 + (32*3)));
-	buffer[0] = 0x01;
-	buffer[1] = 0x00;
-	buffer[2] = 0x00;
+LedPanel.prototype.write = function(data){
+	this.device.write(data);
+};
 
-	for(i = 3; i < buffer.size; i += 15){
+LedPanel.prototype.line = function(panel, line, data){
+	var buffer = new Buffer((3 + (32*3)));
+	
+	buffer[0] = 0x01; 	// line command
+	buffer[1] = panel;	// panel number
+	buffer[2] = line;	// line number
+
+	data.copy(buffer, 3);
+
+	this.write(buffer);
+};
+
+LedPanel.prototype.demo = function(){
+	var buffer = new Buffer(32*3);
+	buffer.fill(0x00);
+
+	for(i = 0; i < buffer.length; i += 15){
 		buffer[i+0] = 0xFF;
 		buffer[i+1] = 0xFF;
 		buffer[i+2] = 0xFF;
@@ -36,7 +50,9 @@ LedPanel.prototype.demo = function(){
 		buffer[i+14] = 0x00;
 	}
 
-	this.device.write(buffer);
+	for(i = 0; i < 32; i++){
+		this.line(0, i, buffer);
+	}
 };
 
 exports.LedPanel = LedPanel;
