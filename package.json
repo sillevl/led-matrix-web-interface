@@ -43,13 +43,12 @@
   },
   "dependencies": {
     "body-parser": "^1.14.2",
-    "canvas": "^1.3.10",
     "express": "^4.13.3",
     "express-handlebars": "^2.0.1",
-    "foundation-sites": "^6.0.3",
-    "get-pixels": "^3.2.3"
+    "foundation-sites": "^6.0.3"
   },
   "optionalDependencies": {
-    "spi": "^0.2.0"
+    "spi": "^0.2.0",
+    "get-pixels": "^3.2.3"
   }
 }
