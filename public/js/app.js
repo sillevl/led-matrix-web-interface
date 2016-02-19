@@ -18,8 +18,9 @@ var sendCanvas = function(e){
   $.ajax({
     type: "POST",
     url: "/api/image",
-    data: img,
-    dataType: 'text'
+    data: {image: img, title: "hello world"},
+    //processData: false,
+    //contentType: 'application/x-www-form-urlencoded'
   });
 };
 
