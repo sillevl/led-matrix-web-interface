@@ -1,7 +1,41 @@
+var canvas = {
+  backgroundColor: '#000000',
+  text: "Hello",
+  draw: function(e){
+    if(e){
+      e.preventDefault(); // prevent page reload
+    }
+
+    var first = $("#first").val();
+    var second = $("#second").val();
+
+    var canvas = $("#canvas")[0];
+    var context = canvas.getContext("2d", {alpha: false});
+
+    context.fillStyle = this.backgroundColor;
+    context.fillRect(0,0,96,64);
+
+    context.fillStyle = "#FFFFFF";
+    context.font = "12px Arial";
+    context.fillText(this.text, 20, 20);
+  },
+  setBackgroundColor: function(backgroundColor){
+    this.backgroundColor = backgroundColor;
+    this.draw();
+  },
+  setText: function(text){
+    this.text = text;
+    this.draw();
+  }
+};
+
+
+
+
 $(document).ready(function(){
   $("#draw").click(function(e){sendCanvas(e);});
-  $("#first").keyup(function(e){updateCanvas(e);});
-  $("#second").keyup(function(e){updateCanvas(e);});
+  $("#canvasText").keyup(function(e){canvas.setText($("#canvasText").val());});
+  canvas.draw();
 });
 
 var sendCanvas = function(e){
@@ -17,22 +51,4 @@ var sendCanvas = function(e){
     //processData: false,
     //contentType: 'application/x-www-form-urlencoded'
   });
-};
-
-var updateCanvas = function(e){
-  e.preventDefault(); // prevent page reload
-
-  var first = $("#first").val();
-  var second = $("#second").val();
-
-  var canvas = $("#canvas")[0];
-  var context = canvas.getContext("2d");
-
-  context.fillStyle = "#000000";
-  context.fillRect(0,0,300,200);
-
-  context.fillStyle = "#0000FF";
-  context.font = "30px Arial";
-  context.fillText(first, 10, 50);
-  context.fillText(second, 10, 150);
 };

@@ -2,24 +2,23 @@
 <form method="post">
   <div class="row">
     <div class="small-3 columns">
-      <label for="middle-label" class="text-right middle">First line</label>
+      <label for="hidden-input">Background color:</label>
     </div>
     <div class="small-9 columns">
-      <input type="text" name="first" id="first" placeholder="Hello">
+      <input type="hidden" id="background-color" class="demo" value="#000000">
     </div>
   </div>
   <div class="row">
     <div class="small-3 columns">
-      <label for="middle-label" class="text-right middle">Second line</label>
+      <label for="middle-label" class="text-right middle">First line</label>
     </div>
     <div class="small-9 columns">
-      <input type="text" name="second" id="second" placeholder="world!">
+      <input type="text" name="canvasText" id="canvasText" placeholder="Hello world !">
     </div>
   </div>
   <div class="row">
     <div class="small-12 columns text-right">
-      <button id="draw" class="button">Draw</button>
-      <button type="submit" class="button">Submit</button>
+      <button type="submit" class="button">Save</button>
     </div>
   </div>
 </form>

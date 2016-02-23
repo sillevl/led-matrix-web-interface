@@ -25,9 +25,25 @@ module.exports = function(grunt) {
         src: [
           "node_modules/jquery/dist/jquery.min.js",
           "node_modules/foundation/js/foundation.min.js",
-          "src/js/application.js"
+          "node_modules/jquery-minicolors/jquery.minicolors.js",
+          "src/js/**.js"
         ],
         dest: 'public/js/app.js',
+      },
+      css: {
+        src: ['public/css/app.css', "node_modules/jquery-minicolors/jquery.minicolors.css"],
+        dest: 'public/css/app.css',
+      }
+    },
+
+    clean: {
+        css: ['public/css/app.css']
+    },
+
+    copy: {
+      main: {
+        src: 'node_modules/jquery-minicolors/jquery.minicolors.png',
+        dest: 'img/jquery.minicolors.png',
       },
     },
 
@@ -50,6 +66,11 @@ module.exports = function(grunt) {
     },
 
     watch: {
+      options: {
+        // Override defaults here
+        livereload: true
+      },
+
       grunt: {
         options: {
           reload: true
@@ -66,8 +87,8 @@ module.exports = function(grunt) {
       },
 
       sass: {
-        files: 'scss/**/*.scss',
-        tasks: ['sass']
+        files: 'src/**/*.scss',
+        tasks: ['public']
       }
     },
 
@@ -86,13 +107,16 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-express-server');
 
   grunt.registerTask('test', ['mochaTest']);
-  grunt.registerTask('build', ['sass', 'concat', 'jshint', 'mochaTest']);
+  grunt.registerTask('public', ['clean', 'sass', 'concat']);
+  grunt.registerTask('build', ['public', 'copy', 'jshint', 'mochaTest']);
   grunt.registerTask('default', ['build','watch']);
   grunt.registerTask('dev', ['build', 'express', 'watch']);
 };
