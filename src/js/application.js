@@ -14,7 +14,7 @@ var canvas = {
 
     this.context.fillStyle = "#FFFFFF";
     this.context.font = "12px Arial";
-    this.context.fillText(this.text, 20, 20);
+    this.context.fillText(this.text, 5, 14);
   },
 
   setBackgroundColor: function(backgroundColor){
