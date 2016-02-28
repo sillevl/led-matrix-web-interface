@@ -49,7 +49,8 @@
     "express-handlebars": "^2.0.1",
     "foundation-sites": "^6.0.3",
     "jquery-minicolors": "^2.1.10",
-    "node-png": "^0.4.3"
+    "node-png": "^0.4.3",
+    "get-pixels": "^3.2.3"
   },
   "optionalDependencies": {
     "spi": "^0.2.0",
