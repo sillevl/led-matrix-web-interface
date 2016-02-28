@@ -880,7 +880,7 @@ var canvas = {
 
     this.context.fillStyle = "#FFFFFF";
     this.context.font = "12px Arial";
-    this.context.fillText(this.text, 20, 20);
+    this.context.fillText(this.text, 5, 14);
   },
 
   setBackgroundColor: function(backgroundColor){
@@ -918,10 +918,8 @@ $(document).ready(function(){
 });
 
 var uploadImage = function(){
-  console.log(this.files);
   if ( this.files && this.files[0] ) {
         canvas.setImage(this.files[0]);
-        console.log("Uploaded image: " + this.files[0]);
     }
 };
 
