@@ -45,6 +45,7 @@ var canvas = {
 
 
 $(document).ready(function(){
+  $(document).foundation();
   $("#draw").click(function(e){sendCanvas(e);});
   $("#canvasText").keyup(function(e){canvas.setText($("#canvasText").val());});
   $("#file")[0].addEventListener("change", uploadImage, false);

@@ -1,27 +1,44 @@
-<h3>Text:</h3>
+
 <form method="post">
-  <div class="row">
-    <div class="small-3 columns">
-      <label for="hidden-input" class="text-right middle">Background color:</label>
+  <ul class="tabs" data-tabs id="form-tabs">
+    <li class="tabs-title is-active"><a href="#textpanel" aria-selected="true">Text</a></li>
+    <li class="tabs-title"><a href="#imagepanel">Image</a></li>
+    <li class="tabs-title"><a href="#testimagepanel">Test images</a></li>
+  </ul>
+  <div class="tabs-content" data-tabs-content="form-tabs">
+    <div class="tabs-panel is-active" id="textpanel">
+      <div class="row">
+        <div class="small-3 columns">
+          <label for="hidden-input" class="text-right middle">Background color:</label>
+        </div>
+        <div class="small-9 columns">
+          <input type="hidden" id="background-color" class="demo" value="#000000">
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-3 columns">
+          <label for="middle-label" class="text-right middle">First line</label>
+        </div>
+        <div class="small-9 columns">
+          <input type="text" name="canvasText" id="canvasText" placeholder="Hello world !">
+        </div>
+      </div>
     </div>
-    <div class="small-9 columns">
-      <input type="hidden" id="background-color" class="demo" value="#000000">
+    <div class="tabs-panel" id="imagepanel">
+      <div class="row">
+        <div class="small-3 columns">
+          <label for="file" class="text-right middle">Upload file:</label>
+        </div>
+        <div class="small-9 columns">
+          <input type="file" id="file">
+        </div>
+      </div>
+
     </div>
-  </div>
-  <div class="row">
-    <div class="small-3 columns">
-      <label for="middle-label" class="text-right middle">First line</label>
-    </div>
-    <div class="small-9 columns">
-      <input type="text" name="canvasText" id="canvasText" placeholder="Hello world !">
-    </div>
-  </div>
-  <div class="row">
-    <div class="small-3 columns">
-      <label for="file" class="text-right middle">Upload file:</label>
-    </div>
-    <div class="small-9 columns">
-      <input type="file" id="file">
+    <div class="tabs-panel" id="testimagepanel">
+      <p>
+        TODO: test images
+      </p>
     </div>
   </div>
   <div class="row">
