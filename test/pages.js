@@ -5,11 +5,11 @@ describe('basic pages', function(){
   var server;
 
   before(function(){
-    server = require('../server');
+    server = require('../app');
   });
 
   after(function(){
-    server.close();
+    //server.close();
   });
 
   it('get the home page at /', function(done){
