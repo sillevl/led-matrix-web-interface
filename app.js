@@ -5,6 +5,9 @@ var exphbs  = require('express-handlebars');
 var bodyParser = require('body-parser');
 var api = require("./lib/api");
 var cors = require('cors');
+var LedPanel = require('99bugs-led-display');
+
+app.display = new LedPanel('/dev/spidev0.0');
 
 app.use(cors());
 
