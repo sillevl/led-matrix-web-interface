@@ -1,9 +1,8 @@
+@import "settings";
 @import "foundation";
-
 @import 'components/top-bar';
 
 @include foundation-everything
-
 
 canvas {
     image-rendering: optimizeSpeed;
