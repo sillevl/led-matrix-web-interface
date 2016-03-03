@@ -28,4 +28,14 @@ app.get('/', function (req, res) {
   res.render('home');
 });
 
+app.on('listening', function(){
+  if (process.env.NODE_ENV == 'production'){
+    //TODO: change to node-png lib instead of getpixels (not needed anymor) (one lib to rule them all)
+    getPixels(__dirname + "/../img/testbeeld.png", function(err, pixels) {
+      if(err) throw "could not get pixels: " + err.toString();
+      app.display.image(new Buffer(pixels.data));
+    });
+  }
+});
+
 module.exports = app;
