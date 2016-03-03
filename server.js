@@ -4,6 +4,9 @@ var app = express();
 var exphbs  = require('express-handlebars');
 var bodyParser = require('body-parser');
 var api = require("./lib/api");
+var cors = require('cors');
+
+app.use(cors());
 
 app.use(bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies

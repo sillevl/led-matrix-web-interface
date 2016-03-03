@@ -46,6 +46,7 @@
   "dependencies": {
     "99bugs-led-display": "^1.0.0",
     "body-parser": "^1.14.2",
+    "cors": "^2.7.1",
     "express": "^4.13.3",
     "express-handlebars": "^2.0.1",
     "foundation-sites": "^6.0.3",
