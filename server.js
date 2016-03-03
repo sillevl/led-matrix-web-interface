@@ -25,17 +25,6 @@ app.get('/', function (req, res) {
   res.render('home');
 });
 
-app.post('/', function(req, res){
-  var data = {
-    first: req.body.first,
-    second: req.body.second
-  };
-  res.render('home', data);
-});
-
-
-
-
 var server = app.listen(3000, function () {
   var host = server.address().address;
   var port = server.address().port;
