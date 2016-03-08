@@ -31,7 +31,7 @@ app.get('/', function (req, res) {
 app.on('listening', function(){
   if (process.env.NODE_ENV == 'production'){
     //TODO: change to node-png lib instead of getpixels (not needed anymor) (one lib to rule them all)
-    getPixels(__dirname + "/../img/testbeeld.png", function(err, pixels) {
+    getPixels(__dirname + "./img/boot.png", function(err, pixels) {
       if(err) throw "could not get pixels: " + err.toString();
       try{
         app.display.image(new Buffer(pixels.data));
