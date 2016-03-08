@@ -33,7 +33,11 @@ app.on('listening', function(){
     //TODO: change to node-png lib instead of getpixels (not needed anymor) (one lib to rule them all)
     getPixels(__dirname + "/../img/testbeeld.png", function(err, pixels) {
       if(err) throw "could not get pixels: " + err.toString();
-      app.display.image(new Buffer(pixels.data));
+      try{
+        app.display.image(new Buffer(pixels.data));
+      } catch(err) {
+        // could not write image to display
+      }
     });
   }
 });
